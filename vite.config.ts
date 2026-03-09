@@ -14,14 +14,14 @@ export default defineConfig({
     drop: ['console', 'debugger'], // 生产环境移除 console 和 debugger
   },
   server: {
-    https: true, // 开启 https
+    //https: true, // 开启 https
     port: 5173, // Port for `vite dev`
     host: '0.0.0.0', // Listen on all network interfaces
     allowedHosts: true, // 允许所有主机访问
     proxy: {
       // 匹配所有以 /api 开头的请求，统一代理到后端
       '/api': {
-        target: 'https://ceramicraft-merchant-frontend',
+        target: 'http://18.140.49.89:30090',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, '') // 将 /api/user-ms/... 重写为 /user-ms/...
