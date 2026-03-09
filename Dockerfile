@@ -16,6 +16,9 @@ RUN npm run build
 # 第二阶段 - 生产环境镜像
 FROM nginxinc/nginx-unprivileged:alpine
 
+# 复制 Nginx 配置文件
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # 复制构建好的静态文件到 nginx 默认目录
 COPY --from=builder /app/dist /usr/share/nginx/html
 
