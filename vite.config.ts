@@ -21,7 +21,7 @@ export default defineConfig({
     proxy: {
       // 匹配所有以 /api 开头的请求，统一代理到后端
       '/api': {
-        target: 'http://18.140.49.89:30090',
+        target: 'http://api.ntdoc.site',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, '') // 将 /api/user-ms/... 重写为 /user-ms/...
